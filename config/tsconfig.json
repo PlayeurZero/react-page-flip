@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"sourceMap": true,
+		"module": "commonjs",
+		"target": "es5",
+		"jsx": "react",
+		"strict": true,
+		"noImplicitAny": false,
+		"strictNullChecks": true
+	},
+	"files": [
+		"../typings/ObjectConstructor.d.ts"
+	],
+	"include": [
+		"../src/**/*",
+		"webpack.config.ts"
+	],
+	"exclude": [
+		"../node_modules/**/*"
+	]
+}

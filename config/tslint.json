@@ -1,0 +1,65 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-react"
+    ],
+    "jsRules": {},
+    "rules": {
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape",
+            "avoid-template",
+            "jsx-double"
+        ],
+        "semicolon": [
+            true,
+            "never"
+        ],
+        "no-reference": [
+            true
+        ],
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    "public-static-field",
+                    "public-static-method",
+                    "protected-static-field",
+                    "protected-static-method",
+                    "private-static-field",
+                    "private-static-method",
+                    "public-instance-field",
+                    "protected-instance-field",
+                    "private-instance-field",
+                    "public-constructor",
+                    "protected-constructor",
+                    "private-constructor"
+                ]
+            }
+        ],
+        "jsx-no-multiline-js": [
+            false
+        ],
+        "object-literal-sort-keys": [
+            false
+        ],
+        "no-empty-interface": [
+            false
+        ],
+        "no-bitwise": [
+            false
+        ],
+        "jsdoc-format": [
+            true
+        ],
+        "ordered-imports": [
+            false
+        ],
+        "jsx-boolean-value": [
+            false
+        ]
+    },
+    "rulesDirectory": []
+}

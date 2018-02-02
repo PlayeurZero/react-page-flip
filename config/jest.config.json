@@ -1,0 +1,19 @@
+{
+  "rootDir": "../",
+  "verbose": true,
+  "testPathIgnorePatterns": [
+    "<rootDir>/dist/",
+    "<rootDir>/lib/"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js"
+  ],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "<rootDir>/config/preprocessor.js"
+  },
+  "testMatch": [
+    "**/__tests__/*.(ts|tsx)"
+  ]
+}
