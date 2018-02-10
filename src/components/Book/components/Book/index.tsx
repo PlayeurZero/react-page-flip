@@ -1,25 +1,25 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import 'tocca'
 
-import Page from './Page'
+import Page from '../Page'
 
 interface IProps {
   width?: string | number
   height?: string | number
-  children: Array<React.ReactElement<any>>
+  children: React.ReactNode
 }
 
 interface IState {
   currentPage: number
 }
 
-/**
- * @version 1.0.0
- * @author [MATHIEU Nicolas](https://github.com/playeurzero)
- */
 class Book extends React.Component<IProps, IState> {
-  private nodes: any
+  public static defaultProps: Partial<IProps> = {
+    width: 1080,
+    height: 640,
+  }
+
+  private $nodes: any = {}
 
   constructor(props: IProps) {
     super(props)
@@ -34,14 +34,14 @@ class Book extends React.Component<IProps, IState> {
   }
 
   public componentDidMount() {
-    const $book = this.nodes.book
+    const $book = this.$nodes.book
 
     $book.addEventListener('swipeleft', this.nextPage)
     $book.addEventListener('swiperight', this.previousPage)
   }
 
   public componentWillUnmount() {
-    const $book = this.nodes.book
+    const $book = this.$nodes.book
 
     $book.removeEventListener('swipeleft', this.nextPage)
     $book.removeEventListener('swiperight', this.previousPage)
@@ -57,10 +57,14 @@ class Book extends React.Component<IProps, IState> {
     }
   }
 
+  private getPageCount() {
+    return React.Children.count(this.props.children)
+  }
+
   private nextPage() {
     const { currentPage } = this.state
 
-    if (currentPage === this.props.children.length) {
+    if (currentPage === this.getPageCount()) {
       return
     }
 
@@ -78,16 +82,20 @@ class Book extends React.Component<IProps, IState> {
   }
 
   public render() {
-    const { width = 1080, height = 640, children }: IProps = this.props
+    const { width, height, children }: IProps = this.props
     const { currentPage } = this.state
 
     return (
-      <div className="book" style={{ width, height }} ref={($node) => this.nodes.book = $node}>
+      <div
+        className="book"
+        style={{ width, height }}
+        ref={($node) => { this.$nodes.book = $node }}
+      >
         <div className="book-wrapper">
           {
             React.Children.map(
               children,
-              (child, index) =>
+              (child, index) => (
                 React.cloneElement(
                   child as React.ReactElement<any>,
                   {
@@ -96,7 +104,8 @@ class Book extends React.Component<IProps, IState> {
                     onClick: this.handleClick,
                     page: index,
                   },
-                ),
+                )
+              ),
             )
           }
         </div>

@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 interface IProps {
-  side: string
-  children: React.ReactElement<any>
+  side?: string
+  children: React.ReactNode
 }
 
 interface IState { }

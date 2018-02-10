@@ -1,23 +1,15 @@
-import Book, { IProps as BookProps } from './components/Book'
-import Page, { IProps as PageProps } from './components/Book/Page'
-import Side, { IProps as SideProps } from './components/Book/Page/Side'
+import * as React from 'react'
 
+import Book, { IProps as IBookProps } from './components/Book'
+import Page, { IProps as IPageProps } from './components/Page'
+import Side, { IProps as ISideProps } from './components/Side'
+
+import 'tocca'
 import './style.css'
 
-const EXPORT = Object.assign(Book, {
-  Page: Object.assign(Page, {
-    Side,
-  }),
-})
-
-interface IBookDecorator extends React.ComponentClass<BookProps> {
-  Page: IPageDecorator
+interface IBookDecorator extends React.ComponentClass<IBookProps> {
+  Page: React.ComponentClass<IPageProps>
+  Side: React.ComponentClass<ISideProps>
 }
 
-interface IPageDecorator extends React.ComponentClass<PageProps> {
-  Side: ISideDecorator
-}
-
-interface ISideDecorator extends React.ComponentClass<SideProps> { }
-
-export default EXPORT as IBookDecorator
+export default Object.assign(Book, { Page, Side }) as IBookDecorator

@@ -1,11 +1,11 @@
 import * as React from 'react'
 
 interface IProps {
-  page: number,
+  page?: number,
   active?: boolean,
   flipped?: boolean,
-  onClick: ({ }: { page: number }) => void,
-  children: React.ReactChild[],
+  onClick?: ({ }: { page: number }) => void,
+  children: Array<React.ReactElement<any>>,
 }
 
 interface IState { }
