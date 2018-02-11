@@ -3,6 +3,8 @@ import * as ReactDOM from 'react-dom'
 
 import Page from '../Page'
 
+import * as classes from './styles.css'
+
 interface IProps {
   width?: string | number
   height?: string | number
@@ -87,11 +89,11 @@ class Book extends React.Component<IProps, IState> {
 
     return (
       <div
-        className="book"
+        className={classes['book']}
         style={{ width, height }}
         ref={($node) => { this.$nodes.book = $node }}
       >
-        <div className="book-wrapper">
+        <div className={classes['book-wrapper']}>
           {
             React.Children.map(
               children,

@@ -9,7 +9,8 @@
 		"strictNullChecks": false
 	},
 	"files": [
-		"../typings/ObjectConstructor.d.ts"
+		"../typings/ObjectConstructor.d.ts",
+		"../typings/CSS.d.ts"
 	],
 	"include": [
 		"../src/**/*",

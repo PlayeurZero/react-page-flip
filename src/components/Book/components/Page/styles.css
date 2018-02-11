@@ -1,0 +1,26 @@
+.book-wrapper-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+  transform-origin: left center;
+
+  transition-property: transform;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(.4, .37, .15, .98);
+}
+
+.book-wrapper-page.is-active {
+  z-index: 1;
+}
+
+.book-wrapper-page.is-flipped {
+  transform: rotate3d(0, 1, 0, -180deg);
+}
+
+.book-wrapper-page.is-flipped:last-of-type {
+  z-index: 1;
+}

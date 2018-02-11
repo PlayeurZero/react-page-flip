@@ -1,0 +1,13 @@
+.book {
+  perspective: 2000px;
+}
+
+.book-wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+
+  width: 50%;
+  height: 100%;
+
+  margin-left: 50%;
+}

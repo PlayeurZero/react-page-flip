@@ -1,5 +1,9 @@
 import * as React from 'react'
 
+import { classConcat } from '../../../../libraries/utils'
+
+import * as classes from './styles.css'
+
 interface IProps {
   page?: number,
   active?: boolean,
@@ -28,7 +32,13 @@ class Page extends React.Component<IProps, IState> {
 
     return (
       <div
-        className={`book-wrapper-page${active ? ' is-active' : ''}${flipped ? ' is-flipped' : ''}`}
+        className={classConcat(
+          classes['book-wrapper-page'],
+          {
+            [classes['is-active']]: active,
+            [classes['is-flipped']]: flipped,
+          },
+        )}
         onClick={this.handleClick}
       >
         {

@@ -1,4 +1,7 @@
 import * as React from 'react'
+import { classConcat } from '../../../../libraries/utils'
+
+import * as classes from './styles.css'
 
 interface IProps {
   side?: string
@@ -13,7 +16,10 @@ class Side extends React.Component<IProps, IState> {
 
     return (
       <div
-        className={`book-wrapper-page-side book-wrapper-page-side--${side}`}
+        className={classConcat(
+          classes['book-wrapper-page-side'],
+          classes[`book-wrapper-page-side--${side}`],
+        )}
       >
         {children}
       </div>
