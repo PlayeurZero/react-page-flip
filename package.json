@@ -19,9 +19,7 @@
     "lint:ts": "tslint --config ./config/tslint.json 'src/**/*.{ts,tsx}'",
     "fix:ts": "tslint --config ./config/tslint.json 'src/**/*.{ts,tsx}' --fix"
   },
-  "dependencies": {
-    "tocca": "^2.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^22.1.1",
     "@types/react": "^16.0.34",
@@ -54,6 +52,6 @@
   },
   "peerDependencies": {
     "react": "16.x.x",
-    "react-dom": "16.x.x"
+    "tocca": "2.x.x"
   }
 }

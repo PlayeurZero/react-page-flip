@@ -4,8 +4,6 @@ import Book, { IProps as IBookProps } from './components/Book'
 import Page, { IProps as IPageProps } from './components/Page'
 import Side, { IProps as ISideProps } from './components/Side'
 
-import 'tocca'
-
 interface IBookDecorator extends React.ComponentClass<IBookProps> {
   Page: React.ComponentClass<IPageProps>
   Side: React.ComponentClass<ISideProps>

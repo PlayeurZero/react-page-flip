@@ -13,8 +13,7 @@
 		"../typings/CSS.d.ts"
 	],
 	"include": [
-		"../src/**/*",
-		"webpack.config.ts"
+		"../src/**/*"
 	],
 	"exclude": [
 		"../node_modules/**/*",

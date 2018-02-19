@@ -8,6 +8,12 @@ A react components that renders a book with pages you can flip.
 npm install github:playeurzero/react-page-flip
 ```
 
+### Install a specific version
+
+```bash
+npm install github:playeurzero/react-page-flip#v1.0.0
+```
+
 ## Usage
 
 ```jsx
@@ -30,3 +36,7 @@ ReactDOM.render(
   document.querySelector('#app')
 )
 ```
+
+## License
+
+[MIT licensed](LICENSE)
