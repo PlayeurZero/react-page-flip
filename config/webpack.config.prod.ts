@@ -28,7 +28,7 @@ const prodConfig = (env): webpack.Configuration => {
     }),
     new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      reportFilename: 'bundle-report.html',
+      reportFilename: 'bundle-report.log.html',
       openAnalyzer: false,
     }),
   )

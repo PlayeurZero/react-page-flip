@@ -10,7 +10,7 @@
 		"lib": [
 			"es2015",
 			"dom"
-		],
+		]
 	},
 	"files": [
 		"./typings/css.d.ts"
