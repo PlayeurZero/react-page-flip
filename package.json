@@ -1,6 +1,6 @@
 {
   "name": "react-page-flip",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "lib/index.js",
   "files": [
     "lib/index.js",
