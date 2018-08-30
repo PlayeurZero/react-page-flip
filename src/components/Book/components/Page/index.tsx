@@ -9,7 +9,7 @@ interface IProps {
   active?: boolean,
   flipped?: boolean,
   onClick?: ({ }: { page: number }) => void,
-  children: Array<React.ReactElement<any>>,
+  children: React.ReactNode,
 }
 
 interface IState { }
@@ -22,28 +22,24 @@ class Page extends React.Component<IProps, IState> {
   }
 
   private handleClick() {
-    const { page, active, onClick } = this.props
-
-    onClick({ page })
+    this.props.onClick({ page: this.props.page })
   }
 
   public render() {
-    const { active, flipped, children } = this.props
-
     return (
       <div
         className={classConcat(
           classes['book-wrapper-page'],
           {
-            [classes['is-active']]: active,
-            [classes['is-flipped']]: flipped,
+            [classes['is-active']]: this.props.active,
+            [classes['is-flipped']]: this.props.flipped,
           },
         )}
         onClick={this.handleClick}
       >
         {
           React.Children.map(
-            children,
+            this.props.children,
             (child, index) =>
               React.cloneElement(
                 child as React.ReactElement<any>,

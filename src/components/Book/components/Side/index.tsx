@@ -12,16 +12,14 @@ interface IState { }
 
 class Side extends React.Component<IProps, IState> {
   public render() {
-    const { side, children } = this.props
-
     return (
       <div
         className={classConcat(
           classes['book-wrapper-page-side'],
-          classes[`book-wrapper-page-side--${side}`],
+          classes[`book-wrapper-page-side--${this.props.side}`],
         )}
       >
-        {children}
+        {this.props.children}
       </div>
     )
   }

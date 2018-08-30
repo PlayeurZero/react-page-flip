@@ -1,14 +1,13 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import Page from '../Page'
-
 import * as classes from './styles.css'
 
 interface IProps {
   width?: string | number
   height?: string | number
   children: React.ReactNode
+  onFlipPage?: (page: number) => void
 }
 
 interface IState {
@@ -19,9 +18,12 @@ class Book extends React.Component<IProps, IState> {
   public static defaultProps: Partial<IProps> = {
     width: 1080,
     height: 640,
+    onFlipPage() { return },
   }
 
-  private $nodes: any = {}
+  private $nodes: any = {
+    book: React.createRef(),
+  }
 
   constructor(props: IProps) {
     super(props)
@@ -36,14 +38,14 @@ class Book extends React.Component<IProps, IState> {
   }
 
   public componentDidMount() {
-    const $book = this.$nodes.book
+    const $book = this.$nodes.book.current
 
     $book.addEventListener('swipeleft', this.nextPage)
     $book.addEventListener('swiperight', this.previousPage)
   }
 
   public componentWillUnmount() {
-    const $book = this.$nodes.book
+    const $book = this.$nodes.book.current
 
     $book.removeEventListener('swipeleft', this.nextPage)
     $book.removeEventListener('swiperight', this.previousPage)
@@ -70,7 +72,7 @@ class Book extends React.Component<IProps, IState> {
       return
     }
 
-    this.setState({ currentPage: currentPage + 1 })
+    this.setPage(currentPage + 1)
   }
 
   private previousPage() {
@@ -80,7 +82,13 @@ class Book extends React.Component<IProps, IState> {
       return
     }
 
-    this.setState({ currentPage: this.state.currentPage - 1 })
+    this.setPage(currentPage - 1)
+  }
+
+  private setPage(page) {
+    this.setState({ currentPage: page })
+
+    this.props.onFlipPage(page)
   }
 
   public render() {
@@ -91,7 +99,7 @@ class Book extends React.Component<IProps, IState> {
       <div
         className={classes['book']}
         style={{ width, height }}
-        ref={($node) => { this.$nodes.book = $node }}
+        ref={this.$nodes.book}
       >
         <div className={classes['book-wrapper']}>
           {

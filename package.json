@@ -17,10 +17,19 @@
     "test:jest": "jest --config ./config/jest.config.json",
     "lint": "npm run lint:ts",
     "lint:ts": "tslint --config ./config/tslint.json 'src/**/*.{ts,tsx}'",
-    "fix:ts": "tslint --config ./config/tslint.json 'src/**/*.{ts,tsx}' --fix"
+    "fix:ts": "tslint --config ./config/tslint.json 'src/**/*.{ts,tsx}' --fix",
+    "storybook:run": "start-storybook -c ./config/.storybook -p 8000",
+    "storybook:build": "build-storybook -c ./config/.storybook"
   },
   "dependencies": {},
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.7",
+    "@storybook/addon-console": "^1.0.4",
+    "@storybook/addon-info": "^3.4.7",
+    "@storybook/addon-knobs": "^3.4.8",
+    "@storybook/addon-links": "^3.4.7",
+    "@storybook/addons": "^3.4.7",
+    "@storybook/react": "^3.4.7",
     "@types/jest": "^22.1.1",
     "@types/react": "^16.0.34",
     "@types/react-dom": "^16.0.3",
