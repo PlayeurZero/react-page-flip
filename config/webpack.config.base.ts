@@ -40,7 +40,7 @@ const config = (env): webpack.Configuration => ({
           {
             loader: 'ts-loader',
             options: {
-              configFile: path.resolve(PROJECT_DIRECTORY, 'config', 'tsconfig.json'),
+              configFile: path.resolve(PROJECT_DIRECTORY, 'tsconfig.json'),
             },
           },
         ],

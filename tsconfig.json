@@ -6,17 +6,20 @@
 		"jsx": "react",
 		"strict": true,
 		"noImplicitAny": false,
-		"strictNullChecks": false
+		"strictNullChecks": false,
+		"lib": [
+			"es2015",
+			"dom"
+		],
 	},
 	"files": [
-		"../typings/ObjectConstructor.d.ts",
-		"../typings/CSS.d.ts"
+		"./typings/css.d.ts"
 	],
 	"include": [
-		"../src/**/*"
+		"./src/**/*"
 	],
 	"exclude": [
-		"../node_modules/**/*",
-		"../**/__tests__/*"
+		"./node_modules/**/*",
+		"**/__tests__/*"
 	]
 }

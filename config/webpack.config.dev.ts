@@ -1,25 +1,25 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
 
-import config, { PROJECT_DIRECTORY, SRC_DIRECTORY, DIST_DIRECTORY } from './webpack.config.base'
+import { default as baseConfig, PROJECT_DIRECTORY, SRC_DIRECTORY, DIST_DIRECTORY } from './webpack.config.base'
 
 const devConfig = (env): webpack.Configuration => {
-  const tmpConfig = config(env)
+  const config = baseConfig(env)
 
-  tmpConfig.devtool = 'eval-source-map'
+  config.devtool = 'eval-source-map'
 
-  tmpConfig.devServer = {
+  config.devServer = {
     contentBase: DIST_DIRECTORY,
     https: false,
   }
 
-  if (!tmpConfig.plugins) { tmpConfig.plugins = [] }
+  if (!config.plugins) { config.plugins = [] }
 
-  tmpConfig.plugins.push(
+  config.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
   )
 
-  return tmpConfig
+  return config
 }
 
 export { devConfig as default }

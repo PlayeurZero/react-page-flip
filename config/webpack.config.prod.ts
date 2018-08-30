@@ -4,16 +4,16 @@ import * as CleanWebpackPlugin from 'clean-webpack-plugin'
 import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import * as BundleAnalyzerPlugin from 'webpack-bundle-analyzer'
 
-import config, { PROJECT_DIRECTORY, SRC_DIRECTORY, DIST_DIRECTORY } from './webpack.config.base'
+import { default as baseConfig, PROJECT_DIRECTORY, SRC_DIRECTORY, DIST_DIRECTORY } from './webpack.config.base'
 
 const prodConfig = (env): webpack.Configuration => {
-  const tmpConfig = config(env)
+  const config = baseConfig(env)
 
-  tmpConfig.devtool = void 0
+  config.devtool = void(0)
 
-  if (!tmpConfig.plugins) { tmpConfig.plugins = [] }
+  if (!config.plugins) { config.plugins = [] }
 
-  tmpConfig.plugins.push(
+  config.plugins.push(
     new CleanWebpackPlugin(
       [path.parse(DIST_DIRECTORY).name],
       {
@@ -33,7 +33,7 @@ const prodConfig = (env): webpack.Configuration => {
     }),
   )
 
-  return tmpConfig
+  return config
 }
 
 export { prodConfig as default }
