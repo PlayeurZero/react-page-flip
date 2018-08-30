@@ -14,6 +14,14 @@ npm install github:playeurzero/react-page-flip
 npm install github:playeurzero/react-page-flip#v1.0.0
 ```
 
+## Demonstration
+
+```bash
+npm run storybook:run
+```
+
+Then open http://localhost:8000 in your favorite browser.
+
 ## Usage
 
 ```jsx
@@ -36,6 +44,48 @@ ReactDOM.render(
   document.querySelector('#app')
 )
 ```
+
+## Description
+
+### \<Book> props
+
+#### width
+
+`number?` = `1080`
+
+The width of the book.
+
+#### height
+
+`number?` = `640`
+
+The height of the book.
+
+#### children
+
+`React.ReactNode`
+
+It contains all `<Book.Page>`.
+
+#### onFlipPage
+
+`(page: number)?` = `() => {}`
+
+### \<Book.Page> props
+
+#### children
+
+`React.ReactNode`
+
+It contains two `<Book.Side>`.
+
+### \<Book.Side> props
+
+#### children
+
+`React.ReactNode`
+
+The content of the page side.
 
 ## License
 
